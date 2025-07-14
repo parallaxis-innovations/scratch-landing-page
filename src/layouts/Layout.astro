@@ -1,0 +1,431 @@
+---
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = 'Scratch - Uncover the Hottest Nights Around You', description = 'Discover curated parties, private sets, and VIP moments in your city. Join the exclusive nightlife community with Scratch.' } = Astro.props;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "MobileApplication",
+	"name": "Scratch",
+	"description": "Discover curated parties, private sets, and VIP moments in your city. Join the exclusive nightlife community.",
+	"applicationCategory": "EntertainmentApplication",
+	"operatingSystem": ["iOS", "Android"],
+	"offers": {
+		"@type": "Offer",
+		"price": "0",
+		"priceCurrency": "USD"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.8",
+		"ratingCount": "2847"
+	},
+	"creator": {
+		"@type": "Organization",
+		"name": "Scratch"
+	}
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/og-image.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-gold: #D4AF37;
+		--secondary-gold: #F4E4A1;
+		--accent-gold: #FFD700;
+		--dark-bg: #0A0A0A;
+		--secondary-dark: #1A1A1A;
+		--tertiary-dark: #2A2A2A;
+		--text-light: #FFFFFF;
+		--text-muted: #B8B8B8;
+		--gradient-primary: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+		--gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+		--gradient-overlay: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+		--shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+		--shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.5);
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		background-color: var(--dark-bg);
+		color: var(--text-light);
+		line-height: 1.6;
+		overflow-x: hidden;
+		padding-top: 80px;
+	}
+
+	.gradient-text {
+		background: var(--gradient-primary);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.btn-primary {
+		background: var(--gradient-primary);
+		border: none;
+		color: var(--dark-bg);
+		padding: 16px 32px;
+		border-radius: 12px;
+		font-weight: 600;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		box-shadow: var(--shadow-gold);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		border: 2px solid var(--primary-gold);
+		color: var(--primary-gold);
+		padding: 14px 30px;
+		border-radius: 12px;
+		font-weight: 600;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.btn-secondary:hover {
+		background: var(--primary-gold);
+		color: var(--dark-bg);
+		transform: translateY(-2px);
+	}
+
+	.section {
+		padding: 80px 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.fade-in {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+
+	.glow-effect {
+		position: relative;
+	}
+
+	.glow-effect::before {
+		content: '';
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		background: var(--gradient-primary);
+		border-radius: inherit;
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.glow-effect:hover::before {
+		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		.section {
+			padding: 60px 0;
+		}
+		
+		.container {
+			padding: 0 16px;
+		}
+	}
+</style>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Register GSAP plugins
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Hero animations
+		const heroTl = gsap.timeline();
+		heroTl
+			.from('.hero-title', {
+				duration: 1.2,
+				y: 100,
+				opacity: 0,
+				ease: 'power3.out'
+			})
+			.from('.hero-subtitle', {
+				duration: 1,
+				y: 50,
+				opacity: 0,
+				ease: 'power3.out'
+			}, '-=0.8')
+			.from('.hero-buttons', {
+				duration: 0.8,
+				y: 30,
+				opacity: 0,
+				ease: 'power3.out'
+			}, '-=0.6')
+			.from('.hero-visual', {
+				duration: 1.2,
+				x: 100,
+				opacity: 0,
+				ease: 'power3.out'
+			}, '-=1');
+
+		// Fade in animations for sections
+		gsap.utils.toArray('.fade-in').forEach((element) => {
+			gsap.fromTo(element, 
+				{
+					opacity: 0,
+					y: 50
+				},
+				{
+					opacity: 1,
+					y: 0,
+					duration: 0.8,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: element,
+						start: 'top 80%',
+						end: 'bottom 20%',
+						toggleActions: 'play none none reverse'
+					}
+				}
+			);
+		});
+
+		// Feature cards stagger animation
+		gsap.fromTo('.feature-card',
+			{
+				opacity: 0,
+				y: 60,
+				scale: 0.9
+			},
+			{
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: 0.6,
+				ease: 'power3.out',
+				stagger: 0.2,
+				scrollTrigger: {
+					trigger: '.features-grid',
+					start: 'top 70%',
+					end: 'bottom 30%',
+					toggleActions: 'play none none reverse'
+				}
+			}
+		);
+
+		// Stats counter animation
+		gsap.utils.toArray('.stat-number').forEach((stat) => {
+			const finalValue = stat.textContent;
+			const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+			
+			gsap.fromTo(stat, 
+				{ textContent: 0 },
+				{
+					textContent: numericValue,
+					duration: 2,
+					ease: 'power2.out',
+					snap: { textContent: 1 },
+					scrollTrigger: {
+						trigger: stat,
+						start: 'top 80%',
+						toggleActions: 'play none none none'
+					},
+					onUpdate: function() {
+						const current = Math.ceil(this.targets()[0].textContent);
+						if (finalValue.includes('K')) {
+							stat.textContent = current + 'K+';
+						} else if (finalValue.includes('+')) {
+							stat.textContent = current + '+';
+						} else {
+							stat.textContent = current;
+						}
+					}
+				}
+			);
+		});
+
+		// Visual grid animation
+		gsap.fromTo('.visual-item',
+			{
+				opacity: 0,
+				scale: 0.8,
+				rotation: -10
+			},
+			{
+				opacity: 1,
+				scale: 1,
+				rotation: 0,
+				duration: 0.8,
+				ease: 'back.out(1.7)',
+				stagger: 0.15,
+				scrollTrigger: {
+					trigger: '.visual-grid',
+					start: 'top 70%',
+					end: 'bottom 30%',
+					toggleActions: 'play none none reverse'
+				}
+			}
+		);
+
+		// Download buttons animation
+		gsap.fromTo('.download-btn',
+			{
+				opacity: 0,
+				x: -50
+			},
+			{
+				opacity: 1,
+				x: 0,
+				duration: 0.8,
+				ease: 'power3.out',
+				stagger: 0.2,
+				scrollTrigger: {
+					trigger: '.download-buttons',
+					start: 'top 80%',
+					toggleActions: 'play none none reverse'
+				}
+			}
+		);
+
+		// Phone mockup animation
+		gsap.fromTo('.phone-mockup',
+			{
+				opacity: 0,
+				y: 100,
+				rotation: -5
+			},
+			{
+				opacity: 1,
+				y: 0,
+				rotation: 0,
+				duration: 1.2,
+				ease: 'power3.out',
+				scrollTrigger: {
+					trigger: '.phone-mockup',
+					start: 'top 80%',
+					toggleActions: 'play none none reverse'
+				}
+			}
+		);
+
+		// Parallax effect for hero background
+		gsap.to('.hero::before', {
+			yPercent: -50,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.hero',
+				start: 'top bottom',
+				end: 'bottom top',
+				scrub: true
+			}
+		});
+
+		// Floating animation for particles
+		gsap.utils.toArray('.particle').forEach((particle, i) => {
+			gsap.to(particle, {
+				y: -20,
+				duration: 2 + Math.random() * 2,
+				ease: 'power2.inOut',
+				yoyo: true,
+				repeat: -1,
+				delay: Math.random() * 2
+			});
+		});
+
+		// Particle effect for hero section
+		createParticles();
+	});
+
+	function createParticles() {
+		const hero = document.querySelector('.hero');
+		if (!hero) return;
+
+		for (let i = 0; i < 50; i++) {
+			const particle = document.createElement('div');
+			particle.className = 'particle';
+			particle.style.cssText = `
+				position: absolute;
+				width: 2px;
+				height: 2px;
+				background: var(--primary-gold);
+				border-radius: 50%;
+				pointer-events: none;
+				opacity: 0.3;
+				animation: float ${3 + Math.random() * 4}s ease-in-out infinite;
+				left: ${Math.random() * 100}%;
+				top: ${Math.random() * 100}%;
+				animation-delay: ${Math.random() * 2}s;
+			`;
+			hero.appendChild(particle);
+		}
+	}
+
+	// Add floating animation keyframes
+	const style = document.createElement('style');
+	style.textContent = `
+		@keyframes float {
+			0%, 100% { transform: translateY(0px); }
+			50% { transform: translateY(-20px); }
+		}
+	`;
+	document.head.appendChild(style);
+</script>
