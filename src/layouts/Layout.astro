@@ -199,31 +199,44 @@ const jsonLd = {
 		// Register GSAP plugins
 		gsap.registerPlugin(ScrollTrigger);
 
-		// Hero animations
-		const heroTl = gsap.timeline();
+		// Hero animations with scroll trigger
+		gsap.set(['.hero-title', '.hero-subtitle', '.hero-buttons', '.hero-visual'], {
+			opacity: 0,
+			y: 50
+		});
+
+		const heroTl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#hero',
+				start: 'top 80%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none reverse'
+			}
+		});
+		
 		heroTl
-			.from('.hero-title', {
+			.to('.hero-title', {
 				duration: 1.2,
-				y: 100,
-				opacity: 0,
+				y: 0,
+				opacity: 1,
 				ease: 'power3.out'
 			})
-			.from('.hero-subtitle', {
+			.to('.hero-subtitle', {
 				duration: 1,
-				y: 50,
-				opacity: 0,
+				y: 0,
+				opacity: 1,
 				ease: 'power3.out'
 			}, '-=0.8')
-			.from('.hero-buttons', {
+			.to('.hero-buttons', {
 				duration: 0.8,
-				y: 30,
-				opacity: 0,
+				y: 0,
+				opacity: 1,
 				ease: 'power3.out'
 			}, '-=0.6')
-			.from('.hero-visual', {
+			.to('.hero-visual', {
 				duration: 1.2,
-				x: 100,
-				opacity: 0,
+				y: 0,
+				opacity: 1,
 				ease: 'power3.out'
 			}, '-=1');
 

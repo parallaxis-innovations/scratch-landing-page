@@ -4,16 +4,16 @@
 <section id="hero" class="hero">
 	<div class="container">
 		<div class="hero-content">
-			<h1 class="hero-title fade-in">
+			<h1 class="hero-title">
 				<span class="gradient-text">Scratch</span><br>
 				Uncover the Hottest<br>
 				Nights Around You!
 			</h1>
-			<p class="hero-subtitle fade-in">
+			<p class="hero-subtitle">
 				Discover curated parties, private sets, and VIP moments in your city. 
 				Join the exclusive nightlife community and never miss the best events again.
 			</p>
-			<div class="hero-buttons fade-in">
+			<div class="hero-buttons">
 				<a href="#download" class="btn-primary">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -27,7 +27,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="hero-visual fade-in">
+		<div class="hero-visual">
 			<div class="phone-mockup">
 				<div class="phone-screen">
 					<div class="app-preview">
@@ -167,6 +167,14 @@
 		font-weight: 600;
 		font-size: 0.9rem;
 		display: inline-block;
+	}
+
+	.hero-title,
+	.hero-subtitle,
+	.hero-buttons,
+	.hero-visual {
+		opacity: 0;
+		transform: translateY(50px);
 	}
 
 	@media (max-width: 1024px) {
