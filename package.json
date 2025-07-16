@@ -15,6 +15,10 @@
   },
   "dependencies": {
     "astro": "^5.2.5",
-    "gsap": "^3.13.0"
+    "gsap": "^3.13.0",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17"
   }
 }

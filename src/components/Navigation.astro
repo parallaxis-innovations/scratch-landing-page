@@ -1,35 +1,46 @@
 ---
+
 ---
 
 <nav class="navbar" id="navbar">
 	<div class="nav-container">
 		<div class="nav-brand">
+			<img src="/logo.png" alt="Scratch Logo">
 			<a href="#" class="brand-link">
 				<span class="gradient-text">Scratch</span>
 			</a>
 		</div>
-		
+
 		<div class="nav-menu" id="nav-menu">
 			<ul class="nav-list">
 				<li class="nav-item">
-					<a href="#hero" class="nav-link">Home</a>
+					<a href="/#hero" class="nav-link">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="#features" class="nav-link">Features</a>
+					<a href="/#features" class="nav-link">Features</a>
 				</li>
 				<li class="nav-item">
-					<a href="#about" class="nav-link">About</a>
+					<a href="/#about" class="nav-link">About</a>
 				</li>
 				<li class="nav-item">
-					<a href="#download" class="nav-link">Download</a>
+					<a href="/#download" class="nav-link">Download</a>
+				</li>
+				<li class="nav-item">
+					<a href="/contact" class="nav-link">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a href="/terms" class="nav-link">Terms</a>
+				</li>
+				<li class="nav-item">
+					<a href="/privacy" class="nav-link">Privacy</a>
 				</li>
 			</ul>
 		</div>
-		
+
 		<div class="nav-actions">
 			<a href="#download" class="btn-primary nav-cta">Get Started</a>
 		</div>
-		
+
 		<div class="nav-toggle" id="nav-toggle">
 			<span class="hamburger-line"></span>
 			<span class="hamburger-line"></span>
@@ -67,7 +78,7 @@
 	}
 
 	.brand-link {
-		font-family: 'Playfair Display', serif;
+		font-family: "Playfair Display", serif;
 		font-size: 1.8rem;
 		font-weight: 700;
 		text-decoration: none;
@@ -97,7 +108,7 @@
 	}
 
 	.nav-link::after {
-		content: '';
+		content: "";
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -121,6 +132,25 @@
 		align-items: center;
 	}
 
+	.nav-brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.nav-brand img {
+		height: 40px;
+		width: 40px;
+		object-fit: contain;
+		border-radius: 8px;
+	}
+
+	@media (max-width: 768px) {
+		.nav-brand img {
+			height: 32px;
+			width: 32px;
+		}
+	}
 	.nav-cta {
 		padding: 12px 24px;
 		font-size: 0.9rem;
@@ -198,56 +228,62 @@
 
 <script>
 	// Navigation functionality
-	document.addEventListener('DOMContentLoaded', () => {
-		const navbar = document.getElementById('navbar');
-		const navToggle = document.getElementById('nav-toggle');
-		const navMenu = document.getElementById('nav-menu');
-		const navLinks = document.querySelectorAll('.nav-link');
+	document.addEventListener("DOMContentLoaded", () => {
+		const navbar = document.getElementById("navbar");
+		const navToggle = document.getElementById("nav-toggle");
+		const navMenu = document.getElementById("nav-menu");
+		const navLinks = document.querySelectorAll(".nav-link");
 
 		// Mobile menu toggle
-		navToggle?.addEventListener('click', () => {
-			navToggle.classList.toggle('active');
-			navMenu?.classList.toggle('active');
+		navToggle?.addEventListener("click", () => {
+			navToggle.classList.toggle("active");
+			navMenu?.classList.toggle("active");
 		});
 
 		// Close mobile menu when clicking on a link
-		navLinks.forEach(link => {
-			link.addEventListener('click', () => {
-				navToggle?.classList.remove('active');
-				navMenu?.classList.remove('active');
+		navLinks.forEach((link) => {
+			link.addEventListener("click", () => {
+				navToggle?.classList.remove("active");
+				navMenu?.classList.remove("active");
 			});
 		});
 
 		// Navbar scroll effect
-		window.addEventListener('scroll', () => {
+		window.addEventListener("scroll", () => {
 			if (window.scrollY > 50) {
-				navbar?.classList.add('scrolled');
+				navbar?.classList.add("scrolled");
 			} else {
-				navbar?.classList.remove('scrolled');
+				navbar?.classList.remove("scrolled");
 			}
 		});
 
 		// Active link highlighting
-		const sections = document.querySelectorAll('section[id]');
-		
+		const sections = document.querySelectorAll("section[id]");
+
 		const highlightNav = () => {
 			const scrollY = window.pageYOffset;
-			
-			sections.forEach(section => {
-				const sectionHeight = section.offsetHeight;
-				const sectionTop = section.offsetTop - 100;
-				const sectionId = section.getAttribute('id');
-				const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-				
-				if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-					navLinks.forEach(link => link.classList.remove('active'));
-					navLink?.classList.add('active');
+
+			sections.forEach((section) => {
+				const sec = section as HTMLElement;
+
+				const sectionHeight = sec.offsetHeight;
+				const sectionTop = sec.offsetTop - 100;
+				const sectionId = sec.getAttribute("id");
+				const navLink = document.querySelector(
+					`.nav-link[href="#${sectionId}"], .nav-link[href="/#${sectionId}"], .nav-link[href="/${sectionId}"]`,
+				);
+
+				if (
+					scrollY > sectionTop &&
+					scrollY <= sectionTop + sectionHeight
+				) {
+					navLinks.forEach((link) => link.classList.remove("active"));
+					navLink?.classList.add("active");
 				}
 			});
 		};
 
-		window.addEventListener('scroll', highlightNav);
-		highlightNav(); // Initial call
+		window.addEventListener("scroll", highlightNav);
+		highlightNav();
 	});
 </script>
-</nav>
