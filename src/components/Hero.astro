@@ -5,38 +5,38 @@
 	<div class="container">
 		<div class="hero-content">
 			<h1 class="hero-title">
-				<span class="gradient-text">Scratch</span><br>
-				Uncover the Hottest<br>
+				<span class="gradient-text">Scratch</span><br />
+				Uncover the Hottest<br />
 				Nights Around You!
 			</h1>
 			<p class="hero-subtitle">
-				Discover curated parties, private sets, and VIP moments in your city. 
-				Join the exclusive nightlife community and never miss the best events again.
+				Discover curated parties, private sets, and VIP moments in your
+				city. Join the exclusive nightlife community and never miss the
+				best events again.
 			</p>
 			<div class="hero-buttons">
 				<a href="#download" class="btn-primary">
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-						<polyline points="7,10 12,15 17,10"/>
-						<line x1="12" y1="15" x2="12" y2="3"/>
+					<svg
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+						></path>
+						<polyline points="7,10 12,15 17,10"></polyline>
+						<line x1="12" y1="15" x2="12" y2="3"></line>
 					</svg>
 					Get Started
 				</a>
-				<a href="#features" class="btn-secondary">
-					Learn More
-				</a>
+				<a href="#features" class="btn-secondary"> Learn More </a>
 			</div>
 		</div>
+
 		<div class="hero-visual">
-			<div class="phone-mockup">
-				<div class="phone-screen">
-					<div class="app-preview">
-						<h3>Uncover the Hottest Nights Around You!</h3>
-						<p>Curated parties, private sets, and VIP moments near you.</p>
-						<div class="preview-button">Get Started</div>
-					</div>
-				</div>
-			</div>
+			<img src="home.png" alt="App mockup" class="mockup" />
 		</div>
 	</div>
 </section>
@@ -49,34 +49,48 @@
 		align-items: center;
 		background: var(--gradient-dark);
 		overflow: hidden;
+		padding: 20px 0;
 	}
 
 	.hero::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+		background: radial-gradient(
+			circle at 50% 50%,
+			rgba(212, 175, 55, 0.1) 0%,
+			transparent 70%
+		);
 		pointer-events: none;
 	}
 
 	.container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 60px;
+		gap: 40px;
 		align-items: center;
 		position: relative;
 		z-index: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 16px;
+	}
+
+	.hero-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	.hero-title {
-		font-family: 'Playfair Display', serif;
+		font-family: "Playfair Display", serif;
 		font-size: clamp(2.5rem, 5vw, 4rem);
 		font-weight: 700;
 		line-height: 1.1;
-		margin-bottom: 24px;
+		margin-bottom: 20px;
 	}
 
 	.hero-subtitle {
@@ -96,85 +110,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 600px;
+		height: 700px;
 	}
 
-	.phone-mockup {
-		position: relative;
-		width: 280px;
-		height: 580px;
-		background: var(--secondary-dark);
-		border-radius: 40px;
-		padding: 20px;
-		box-shadow: var(--shadow-dark);
-		border: 3px solid var(--tertiary-dark);
-	}
-
-	.phone-screen {
+	.mockup {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
-		border-radius: 30px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.phone-screen::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=400');
-		background-size: cover;
-		background-position: center;
-		opacity: 0.3;
-		z-index: 1;
-	}
-
-	.app-preview {
-		position: relative;
-		z-index: 2;
-		text-align: center;
-		padding: 40px 20px;
-		background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
-		border-radius: 20px;
-		margin: 20px;
-	}
-
-	.app-preview h3 {
-		font-family: 'Playfair Display', serif;
-		font-size: 1.5rem;
-		color: var(--primary-gold);
-		margin-bottom: 16px;
-		line-height: 1.2;
-	}
-
-	.app-preview p {
-		color: var(--text-muted);
-		font-size: 0.9rem;
-		margin-bottom: 24px;
-	}
-
-	.preview-button {
-		background: var(--gradient-primary);
-		color: var(--dark-bg);
-		padding: 12px 24px;
-		border-radius: 8px;
-		font-weight: 600;
-		font-size: 0.9rem;
-		display: inline-block;
-	}
-
-	.hero-title,
-	.hero-subtitle,
-	.hero-buttons,
-	.hero-visual {
-		opacity: 0;
-		transform: translateY(50px);
+		object-fit: cover;
+		object-position: center;
 	}
 
 	@media (max-width: 1024px) {
@@ -183,14 +127,24 @@
 			text-align: center;
 			gap: 40px;
 		}
-		
+
 		.hero-title {
 			font-size: clamp(2rem, 4vw, 3rem);
 		}
-		
-		.phone-mockup {
-			width: 240px;
-			height: 500px;
+
+		.hero-subtitle {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.hero-buttons {
+			justify-content: center;
+		}
+
+		.hero-visual {
+			width: 100%;
+			height: auto;
+			max-height: 600px;
 		}
 	}
 
@@ -199,27 +153,46 @@
 			min-height: 90vh;
 			padding: 40px 0;
 		}
-		
+
 		.hero-buttons {
 			justify-content: center;
 		}
-		
-		.btn-primary, .btn-secondary {
+
+		.btn-primary,
+		.btn-secondary {
 			padding: 14px 28px;
 			font-size: 15px;
 		}
-		
-		.phone-mockup {
-			width: 200px;
-			height: 420px;
-		}
-		
-		.app-preview {
-			padding: 30px 15px;
-		}
-		
-		.app-preview h3 {
-			font-size: 1.2rem;
+
+		.hero-visual {
+			width: 100%;
+			height: auto;
+			max-height: 400px;
 		}
 	}
+
+	@media (max-width: 480px) {
+		.container {
+			padding: 0 12px;
+		}
+
+		.hero-title {
+			font-size: clamp(1.25rem, 4vw, 1.75rem);
+		}
+
+		.hero-subtitle {
+			font-size: clamp(0.75rem, 2vw, 0.875rem);
+		}
+
+		.btn-primary,
+		.btn-secondary {
+			padding: 10px 16px;
+			font-size: 0.875rem;
+		}
+
+		.hero-visual {
+			max-height: 300px;
+		}
+	}
+
 </style>
