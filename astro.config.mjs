@@ -7,5 +7,11 @@ export default defineConfig({
     port: 4321,
     host: true
   },
-  output: 'static'
+  output: 'static',
+  site: 'https://charmshospitality.com',
+  vite: {
+    preview: {
+      allowedHosts: ['charmshospitality.com', 'www.charmshospitality.com']
+    }
+  }
 });
