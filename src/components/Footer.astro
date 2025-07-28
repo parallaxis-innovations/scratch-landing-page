@@ -10,13 +10,32 @@
 					<img src="/logo.png" alt="Scratch Logo" />
 					<h3 class="brand-name gradient-text">Scratch</h3>
 				</div>
+
 				<p class="brand-description">
 					Uncover the hottest nights around you. Join the exclusive
 					nightlife community.
+					<p class="propriety">
+						A propriety of charms hospitality services.
+					</p>
+					<div class="contact-info">
+						<div>
+							<a href="tel:7870369666">+91 7870369666</a>
+						</div>
+						<div>
+							<a
+								href="https://www.google.com/maps/search/3rd+Floor,+1A,+Bindal+Mall,+Marine+Dr+Rd,+Sonari,+Jamshedpur,+Jharkhand+831011/@22.8289164,86.1661611,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+								>3rd Floor, 1A, Bindal Mall, Marine Dr Rd,
+								Sonari, Jamshedpur, Jharkhand 831011</a
+							>
+						</div>
+					</div>
 				</p>
 				<div class="social-links">
 					<!-- Instagram -->
-					<a href="https://www.instagram.com/scratchjsr/?hl=en" class="social-link">
+					<a
+						href="https://www.instagram.com/scratchjsr/?hl=en"
+						class="social-link"
+					>
 						<svg
 							width="20"
 							height="20"
@@ -39,7 +58,10 @@
 						</svg>
 					</a>
 					<!-- Facebook -->
-					<a href="#" class="social-link">
+					<a
+						href="https://www.facebook.com/Scratchjsr"
+						class="social-link"
+					>
 						<svg
 							width="20"
 							height="20"
@@ -65,9 +87,22 @@
 							<path
 								d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
 							></path>
-						</path>
+						</svg>
 					</a>
 				</div>
+
+				<!-- <div class="contact-info">
+					<div>
+						<a href="tel:7870369666">+91 7870369666</a>
+					</div>
+					<div>
+						<a
+							href="https://www.google.com/maps/search/3rd+Floor,+1A,+Bindal+Mall,+Marine+Dr+Rd,+Sonari,+Jamshedpur,+Jharkhand+831011/@22.8289164,86.1661611,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+							>3rd Floor, 1A, Bindal Mall, Marine Dr Rd, Sonari,
+							Jamshedpur, Jharkhand 831011</a
+						>
+					</div>
+				</div> -->
 			</div>
 
 			<div class="footer-links">
@@ -93,157 +128,195 @@
 		</div>
 
 		<div class="footer-bottom">
-			<p>&copy; 2024 Scratch. All rights reserved.</p>
+			<p>
+				&copy; <span id="currentYear"></span> Scratch. All rights reserved.
+			</p>
 			<p>Designed with ❤️ for party enthusiasts</p>
 		</div>
 	</div>
-</footer>
 
-<style>
-	.footer {
-		background: var(--dark-bg);
-		border-top: 1px solid var(--tertiary-dark);
-		padding: 60px 0 20px;
-	}
-
-	.footer-content {
-		display: grid;
-		grid-template-columns: 4fr 2fr;
-		gap: 60px;
-		margin-bottom: 40px;
-	}
-
-	.brand-name {
-		display: flex;
-		font-family: "Playfair Display", serif;
-		font-size: 2rem;
-		font-weight: 700;
-		margin-bottom: 16px;
-	}
-
-	.brand-logo {
-		display: flex;
-		flex-direction: row;
-		justify-items: center;
-		align-items: center;
-		gap: 16px;
-	}
-
-	.footer-brand img {
-		height: 40px;
-		width: 40px;
-		object-fit: contain;
-		border-radius: 8px;
-	}
-
-	@media (max-width: 768px) {
-		.footer-brand img {
-			height: 32px;
-			width: 32px;
+	<script>
+		const currentYearElement = document.getElementById("currentYear");
+		if (currentYearElement) {
+			currentYearElement.textContent = new Date()
+				.getFullYear()
+				.toString();
 		}
-	}
+	</script>
 
-	.brand-description {
-		color: var(--text-muted);
-		line-height: 1.6;
-		margin-bottom: 24px;
-		max-width: 300px;
-	}
-
-	.social-links {
-		display: flex;
-		gap: 16px;
-	}
-
-	.social-link {
-		width: 40px;
-		height: 40px;
-		background: var(--tertiary-dark);
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--text-muted);
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-
-	.social-link:hover {
-		background: var(--primary-gold);
-		color: var(--dark-bg);
-		transform: translateY(-2px);
-	}
-
-	.footer-links {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 40px;
-	}
-
-	.link-title {
-		color: var(--text-light);
-		font-size: 1.1rem;
-		font-weight: 600;
-		margin-bottom: 16px;
-	}
-
-	.link-list {
-		list-style: none;
-	}
-
-	.link-list li {
-		margin-bottom: 8px;
-	}
-
-	.link-list a {
-		color: var(--text-muted);
-		text-decoration: none;
-		transition: color 0.3s ease;
-	}
-
-	.link-list a:hover {
-		color: var(--primary-gold);
-	}
-
-	.footer-bottom {
-		border-top: 1px solid var(--tertiary-dark);
-		padding-top: 20px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: var(--text-muted);
-		font-size: 0.9rem;
-	}
-
-	@media (max-width: 1024px) {
-		.footer-content {
-			grid-template-columns: 1fr;
-			gap: 40px;
-		}
-
-		.footer-links {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 768px) {
+	<style>
 		.footer {
-			padding: 40px 0 20px;
+			background: var(--dark-bg);
+			border-top: 1px solid var(--tertiary-dark);
+			padding: 60px 0 20px;
 		}
 
-		.footer-links {
-			grid-template-columns: 1fr;
-			gap: 30px;
+		.footer-content {
+			display: grid;
+			grid-template-columns: 4fr 2fr;
+			gap: 60px;
+			margin-bottom: 40px;
 		}
 
-		.footer-bottom {
-			flex-direction: column;
-			gap: 8px;
-			text-align: center;
+		.brand-name {
+			display: flex;
+			font-family: "Playfair Display", serif;
+			font-size: 2rem;
+			font-weight: 700;
+			margin-bottom: 16px;
+		}
+
+		.brand-logo {
+			display: flex;
+			flex-direction: row;
+			justify-items: center;
+			align-items: center;
+			gap: 16px;
+		}
+
+		.footer-brand img {
+			height: 40px;
+			width: 40px;
+			object-fit: contain;
+			border-radius: 8px;
+		}
+
+		@media (max-width: 768px) {
+			.footer-brand img {
+				height: 32px;
+				width: 32px;
+			}
 		}
 
 		.brand-description {
-			max-width: none;
+			color: var(--text-muted);
+			line-height: 1.6;
+			margin-bottom: 4px;
+			max-width: 300px;
 		}
-	}
-</style>
+
+		.social-links {
+			display: flex;
+			gap: 16px;
+		}
+
+		.social-link {
+			width: 40px;
+			height: 40px;
+			background: var(--tertiary-dark);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--text-muted);
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+
+		.social-link:hover {
+			background: var(--primary-gold);
+			color: var(--dark-bg);
+			transform: translateY(-2px);
+		}
+
+		.footer-links {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 40px;
+		}
+
+		.link-title {
+			color: var(--text-light);
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 16px;
+		}
+
+		.link-list {
+			list-style: none;
+		}
+
+		.link-list li {
+			margin-bottom: 8px;
+		}
+
+		.link-list a {
+			color: var(--text-muted);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.link-list a:hover {
+			color: var(--primary-gold);
+		}
+
+		.footer-bottom {
+			border-top: 1px solid var(--tertiary-dark);
+			padding-top: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: var(--text-muted);
+			font-size: 0.9rem;
+		}
+
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			/* gap: 8px; */
+			color: var(--text-muted);
+			margin-bottom: 24px;
+		}
+
+		.propriety {
+			font-size: 1rem;
+			color: var(--text-muted);
+			line-height: 1.8;
+			margin-bottom: 15px;
+		}
+
+		.contact-info a {
+			color: var(--text-muted);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+		.info-text a {
+			color: var(--primary-gold);
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 0.9rem;
+		}
+
+		@media (max-width: 1024px) {
+			.footer-content {
+				grid-template-columns: 1fr;
+				gap: 40px;
+			}
+
+			.footer-links {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 768px) {
+			.footer {
+				padding: 40px 0 20px;
+			}
+
+			.footer-links {
+				grid-template-columns: 1fr;
+				gap: 30px;
+			}
+
+			.footer-bottom {
+				flex-direction: column;
+				gap: 8px;
+				text-align: center;
+			}
+
+			.brand-description {
+				max-width: none;
+			}
+		}
+	</style>
+</footer>
