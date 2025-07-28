@@ -11,9 +11,11 @@
     "docker:build": "docker build -t scratch-landing-page .",
     "docker:run": "docker run -p 3000:3000 scratch-landing-page",
     "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^9.3.0",
     "astro": "^5.2.5",
     "gsap": "^3.13.0",
     "nodemailer": "^7.0.5"
