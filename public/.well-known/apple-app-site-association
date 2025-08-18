@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "777A4H94R8.com.charmhospitality.scratch",
+        "paths": ["*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "777A4H94R8.com.charmhospitality.scratch"
+    ]
+  }
+}
