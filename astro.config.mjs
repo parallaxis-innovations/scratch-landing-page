@@ -16,7 +16,23 @@ export default defineConfig({
   vite: {
     preview: {
       allowedHosts: ['charmshospitality.com', 'www.charmshospitality.com']
-    }
+    },
+    plugins: [
+      {
+        name: 'well-known-json-content-type',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (
+              req.url === '/.well-known/apple-app-site-association' ||
+              req.url === '/.well-known/assetlinks.json'
+            ) {
+              res.setHeader('Content-Type', 'application/json');
+            }
+            next();
+          });
+        }
+      }
+    ]
   },
 
   adapter: node({
